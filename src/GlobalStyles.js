@@ -2,6 +2,10 @@
 export const FontFamily = {
     font: "Pretendard",
     interRegular: "Inter-Regular",
+    PretendardBold : "Pretendard-Bold",
+    PretendardRegular : "Pretendard-Regular",
+    PretendardSemiBold : "Pretendard-SemiBold",
+    PretendardLight : "Pretendard-Light"
   };
   /* font sizes */
   export const FontSize = {
@@ -27,7 +31,7 @@ export const FontFamily = {
     colorWhitesmoke_100: "#f8f8f8",
     extraLightGrey: "#f5f5f5",
     black: "#000",
-    colorGold: "#fee500",
+    kakaoYellow: "#fee500",
     pointY: "#f4b711",
     colorGoldenrod_100: "rgba(244, 183, 17, 0.6)",
     mediumGrey: "#bcbcbc",
