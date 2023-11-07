@@ -1,25 +1,25 @@
 import * as React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import { Color, FontFamily } from '../GlobalStyles';
-import Button1 from '../components/Button1';
-import RegistrationInfo from '../components/RegistrationInfo';
-const Registration2 = () => {
+import { Color, FontFamily } from '../../GlobalStyles';
+import Button1 from '../Button1';
+import RegistrationInfo from '../RegistrationInfo';
+const RegistrationFrame = () => {
 
   return (
     <View style={styles.view}>
       <View style={styles.frame}>
         <View style={styles.headerFrame}>
           <Image style={styles.backButton} source={require("../assets/img/backButton.png")}></Image>
-          <Text style={styles.headerTitle}>{"출생 년도"}</Text>
+          <Text style={styles.headerTitle}>{"이름 선택"}</Text>
           <View style={styles.progressbarOut}>
             <View style={styles.progressbarIn}></View>
           </View>
         </View>
         <View style={styles.contentFrame}>
-          <Text style={styles.title}>{"웰리님의\n출생연도를 알려주세요"}</Text>
-          <RegistrationInfo style = {{marginTop : 26}} text={"서비스 고도화를 위해 저희만 알고 있을게요"}></RegistrationInfo>
+          <Text style={styles.title}>{"웰리비에서 사용할\n닉네임을 알려주세요"}</Text>
+          <RegistrationInfo style = {{marginTop : 26}} text={"언제든 변경할 수 있어요"}></RegistrationInfo>
           <View style={styles.inputfieldFrame}>
-            <Text style={styles.inputfieldText}>1998</Text>
+            <Text style={styles.inputfieldText}>웰리</Text>
           </View>
           <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
         </View>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems : "center",
     width: 329,
     height: 613,
-    marginTop: 20,
+    marginTop: 27,
   },
 
   title: {
@@ -136,4 +136,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Registration2;
+export default RegistrationFrame;

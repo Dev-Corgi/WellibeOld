@@ -1,39 +1,25 @@
 import * as React from 'react';
 import {StyleSheet, Image, View, Text} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
-import Button1 from '../components/Button1';
 import RegistrationInfo from '../components/RegistrationInfo';
-import SelectionList from '../components/SelectionList';
-const Registration4 = () => {
+const Registration2 = () => {
   return (
     <>
-      <Text style={styles.title}>{'현재 어떠한\n일을 하고 계신가요?'}</Text>
+      <Text style={styles.title}>{'웰리님의\n출생연도를 알려주세요'}</Text>
       <RegistrationInfo
+        style={{marginTop: 26}}
         text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
       <View style={styles.contentFrame}>
-        <SelectionList
-          selections={[
-            '학생',
-            '취업 준비생',
-            '직장인',
-            '주부',
-            '기타',
-          ]}></SelectionList>
+        <View style={styles.inputfieldFrame}>
+          <Text style={styles.inputfieldText}>1998</Text>
+        </View>
+        <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
       </View>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
-    backgroundColor: Color.white,
-    display: 'flex',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
   frame: {
     position: 'relative',
     width: 334,
@@ -97,8 +83,8 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     width: '100%',
     textAlign: 'left',
-    marginTop: 20,
     marginBottom: 20,
+    marginTop: 20,
   },
 
   inputfieldFrame: {
@@ -110,17 +96,6 @@ const styles = StyleSheet.create({
     height: 52,
     borderRadius: 12,
     backgroundColor: Color.colorWhitesmoke_100,
-  },
-
-  inputfieldFrame2: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 327,
-    height: 52,
-    borderRadius: 12,
-    backgroundColor: Color.colorKhaki,
   },
 
   inputfieldText: {
@@ -139,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Registration4;
+export default Registration2;

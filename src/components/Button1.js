@@ -1,18 +1,17 @@
 import * as React from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { Color, FontFamily } from '../GlobalStyles';
 
-const Button1 = ({text}) => {
+const Button1 = ({text,style,onPress}) => {
     return (
-        <View style={styles.view}>
+        <Pressable style={[styles.view,style]} onPress = {onPress}>
             <Text style={styles.text}>{text}</Text>
-        </View>
+        </Pressable>
     );
 };
 
 const styles = StyleSheet.create({
     view: {
-        position: "relative",
         width: 340,
         height: 57,
         display: "flex",

@@ -1,15 +1,16 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,createNavigationContainerRef } from '@react-navigation/native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // Stack 네비게이션
 import { SafeAreaView, StyleSheet, useColorScheme } from 'react-native';
-import Loading from './src/screens/Loading';
 import Login from './src/screens/Login';
 import Intro from './src/screens/Intro';
 import Registration from './src/screens/Registration';
-import Registration2 from './src/screens/Registration2';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import DateTimePickerModalSample from './src/components/DatePickerSample';
+
 const Stack = createNativeStackNavigator();
+export const navigationRef = createNavigationContainerRef()
+
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +20,8 @@ function App(): JSX.Element {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+    ref={navigationRef}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {/* <Stack.Screen
           name="Loading"
@@ -36,21 +38,17 @@ function App(): JSX.Element {
           component={Intro}
           options={{ headerShown: false }}
         /> */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Registration"
           component={Registration}
           options={{ headerShown: false }}
-        /> */}
-        {/* <Stack.Screen
-          name="Registration2"
-          component={Registration2}
-          options={{ headerShown: false }}
-        /> */}
-                <Stack.Screen
+        />
+                {/* <Stack.Screen
           name="DateTimePickerModalSample"
           component={DateTimePickerModalSample}
           options={{ headerShown: false }}
-        />
+        /> */}
+
 
       </Stack.Navigator>
     </NavigationContainer>
@@ -75,5 +73,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
+
 
 export default App;

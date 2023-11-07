@@ -20,7 +20,7 @@ export const FontFamily = {
   /* Colors */
   export const Color = {
     white: "#fff",
-    white: "#fcfcfc",
+    // white: "#fcfcfc",
     colorGray_100: "#fbfbfb",
     gray_100: "#fafafa",
     colorGray_200: "#262626",
