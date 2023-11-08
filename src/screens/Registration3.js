@@ -6,7 +6,7 @@ import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
 const Registration3 = () => {
   return (
-    <>
+    <View style = {styles.view}>
       <Text style={styles.title}>{'성별이\n어떻게 되시나요?'}</Text>
       <RegistrationInfo
         style={{marginTop: 26}}
@@ -14,57 +14,15 @@ const Registration3 = () => {
       <View style={styles.contentFrame}>
           <SelectionList selections={['남성', '여성', '기타']}></SelectionList>
       </View>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  frame: {
-    position: 'relative',
-    width: 334,
-    height: 751,
-    display: 'flex',
-    flexDirection: 'column',
-    zIndex: 1,
-  },
-
-  headerFrame: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: 326,
-    height: 49,
-  },
-
-  backButton: {
-    position: 'absolute',
-    top: 5,
-    left: 0,
-    width: 7.65,
-    height: 14.24,
-  },
-
-  headerTitle: {
-    position: 'relative',
-    fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
-    color: Color.black,
-  },
-
-  progressbarOut: {
-    width: 326,
-    height: 3,
-    marginTop: 12,
-    borderRadius: 500,
-    backgroundColor: Color.colorWhitesmoke_100,
-  },
-
-  progressbarIn: {
-    width: 76,
-    height: 3,
-    borderRadius: 500,
-    backgroundColor: Color.colorKhaki,
+  view: {
+    backgroundColor: Color.white,
+    width: '100%',
+    height: '100%',
   },
 
   contentFrame: {
@@ -86,50 +44,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  inputfieldFrame: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 327,
-    height: 52,
-    borderRadius: 12,
-    backgroundColor: Color.colorWhitesmoke_100,
-  },
-
-  inputfieldFrame2: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 327,
-    height: 52,
-    borderRadius: 12,
-    backgroundColor: Color.colorKhaki,
-  },
-
-  inputfieldText: {
-    fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
-    color: Color.black,
-  },
-
-  subtext: {
-    fontFamily: FontFamily.PretendardLight,
-    color: Color.grey,
-    width: '100%',
-    fontSize: 12,
-    marginTop: 14,
-    textAlign: 'center',
-  },
-
-  selectionFrame: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    gap: 10,
-  },
 });
 
 export default Registration3;

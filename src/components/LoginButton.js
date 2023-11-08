@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
 import { FontFamily } from '../GlobalStyles';
 
-const LoginButton = ({backgroundColor,logo,text}) => {
+const LoginButton = ({backgroundColor,logo,text,onPress}) => {
     return (
-        <View style={[styles.view,{backgroundColor: backgroundColor}]}>
+        <Pressable style={[styles.view,{backgroundColor: backgroundColor}]} onPress={onPress}>
             <Image
                 style={styles.logo}
                 source={logo}>
             </Image>
             <Text style={styles.text}>{text}</Text>
-        </View>
+        </Pressable>
     );
 };
 

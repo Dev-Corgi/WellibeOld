@@ -131,68 +131,7 @@ const styles = StyleSheet.create({
     height: 3,
     borderRadius: 500,
     backgroundColor: Color.colorKhaki,
-  },
-
-  contentFrame: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: 27,
-  },
-
-  title: {
-    fontFamily: FontFamily.PretendardBold,
-    fontSize: 22,
-    color: Color.black,
-    lineHeight: 34,
-    width: '100%',
-    textAlign: 'left',
-    marginBottom: 20,
-    marginTop: 20,
-  },
-
-  inputfieldFrame: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 327,
-    height: 52,
-    borderRadius: 12,
-    backgroundColor: Color.colorWhitesmoke_100,
-    marginTop: 27,
-  },
-
-  inputfieldText: {
-    fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 18,
-    color: Color.black,
-  },
-
-  subtext: {
-    fontFamily: FontFamily.PretendardLight,
-    color: Color.grey,
-    width: '100%',
-    fontSize: 12,
-    marginTop: 14,
-    textAlign: 'center',
-  },
-
-  slideFrame: {
-    position: 'absolute',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 45,
-  },
-});
-
-const config = {
-  animation: 'timing',
-  config:{
-    duration:500,
-    easing:Easing.ease
   }
-}
+});
 
 export default Registration;

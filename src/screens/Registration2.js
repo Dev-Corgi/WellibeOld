@@ -1,71 +1,57 @@
-import * as React from 'react';
-import {StyleSheet, Image, View, Text} from 'react-native';
-import {Color, FontFamily} from '../GlobalStyles';
+import React,{useState} from 'react';
+import { StyleSheet, Image, View, Text, Pressable } from 'react-native';
+import { Color, FontFamily } from '../GlobalStyles';
 import RegistrationInfo from '../components/RegistrationInfo';
+import { format } from "date-fns";
+import ko from "date-fns/esm/locale/ko/index.js";
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 const Registration2 = () => {
+  const [visible, setVisible] = useState(false); // 모달 노출 여부
+  const [date, onChangeDate] = useState(new Date()); // 선택 날짜
+
+  const onPress = () => { // 날짜 클릭 시
+    setVisible(true); // 모달 open
+  };
+
+  const onConfirm = (selectedDate) => { // 날짜 또는 시간 선택 시
+    setVisible(false); // 모달 close
+    onChangeDate(selectedDate); // 선택한 날짜 변경
+  };
+
+  const onCancel = () => { // 취소 시
+    setVisible(false); // 모달 close
+  };
+
   return (
     <>
-      <Text style={styles.title}>{'웰리님의\n출생연도를 알려주세요'}</Text>
-      <RegistrationInfo
-        style={{marginTop: 26}}
-        text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
-      <View style={styles.contentFrame}>
-        <View style={styles.inputfieldFrame}>
-          <Text style={styles.inputfieldText}>1998</Text>
+      <View style={styles.view}>
+        <Text style={styles.title}>{'웰리님의\n출생연도를 알려주세요'}</Text>
+        <RegistrationInfo
+          style={{ marginTop: 26 }}
+          text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
+        <View style={styles.contentFrame}>
+          <Pressable style={styles.inputfieldFrame} onPress={onPress}>
+            <Text style={styles.inputfieldText}>{date.getFullYear()}</Text>
+          </Pressable>
+          <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
         </View>
-        <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
       </View>
+      <DateTimePickerModal
+        isVisible={visible}
+        mode={"date"}
+        display={"spinner"}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+        date={date} />
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  frame: {
-    position: 'relative',
-    width: 334,
-    height: 751,
-    display: 'flex',
-    flexDirection: 'column',
-    zIndex: 1,
-  },
-
-  headerFrame: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: 326,
-    height: 49,
-  },
-
-  backButton: {
-    position: 'absolute',
-    top: 5,
-    left: 0,
-    width: 7.65,
-    height: 14.24,
-  },
-
-  headerTitle: {
-    position: 'relative',
-    fontFamily: FontFamily.PretendardSemiBold,
-    fontSize: 20,
-    color: Color.black,
-  },
-
-  progressbarOut: {
-    width: 326,
-    height: 3,
-    marginTop: 12,
-    borderRadius: 500,
-    backgroundColor: Color.colorWhitesmoke_100,
-  },
-
-  progressbarIn: {
-    width: 76,
-    height: 3,
-    borderRadius: 500,
-    backgroundColor: Color.colorKhaki,
+  view: {
+    backgroundColor: Color.white,
+    width: '100%',
+    height: '100%',
   },
 
   contentFrame: {

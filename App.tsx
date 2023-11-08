@@ -7,7 +7,7 @@ import Intro from './src/screens/Intro';
 import Registration from './src/screens/Registration';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import DateTimePickerModalSample from './src/components/DatePickerSample';
-
+import DynamicTextFrame from './src/screens/DynamicTextFrame';
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef()
 
@@ -28,16 +28,16 @@ function App(): JSX.Element {
           component={Loading}
           options={{headerShown: false}}
         /> */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="LogIn"
           component={Login}
           options={{headerShown: false}}
-        /> */}
-        {/* <Stack.Screen
+        />
+        <Stack.Screen
           name="Intro"
           component={Intro}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Registration"
           component={Registration}

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
 import { FontFamily,Color } from '../GlobalStyles';
+// import moderateScale from "react-native-size-matters"
 
 const MessageFrame = ({text}) => {
     return (
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     view: {
         position: "relative",
         display: "flex",
+        // maxwidth: moderateScale(250,2),
         paddingTop: 12,
         paddingBottom : 12,
         paddingLeft : 14,
