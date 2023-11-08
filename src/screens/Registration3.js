@@ -4,7 +4,7 @@ import {Color, FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
-const Registration3 = () => {
+const Registration3 = ({buttonCallBack}) => {
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>{'성별이\n어떻게 되시나요?'}</Text>

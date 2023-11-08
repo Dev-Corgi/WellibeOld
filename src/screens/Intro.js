@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Button1 from '../components/Button1';      
 import MessageFrame from '../components/MessageFrame';
 import {useNavigation} from '@react-navigation/native';
+import MessageBubble from '../components/MessageBubble';
 const Intro = () => {
 
   const sloganMessage = "삶을 바꾸는\n건강한 자신감"
@@ -19,13 +20,12 @@ const Intro = () => {
       colors={['#ffffff00', '#ffffffff']}
       style={styles.foreground}
     />
-    <View style = {styles.frame}>
       <View style = {styles.messageFrame}>
-        <MessageFrame text = {"반갑습니다."}/>
-        <MessageFrame text = {"저는 AI코치 웰리입니다."}/>
-        <MessageFrame text = {"회원님께 필요한 트레이닝을 추천하기 위해\n몇가지 질문을 드릴게요."}/>
+        <MessageBubble message = {"반갑습니다."}></MessageBubble>
+        <MessageBubble message = {"저는 AI코치 웰리입니다."}></MessageBubble>
+        <MessageBubble message = {"회원님께 필요한 트레이닝을 추천하기 위해 몇가지 질문을 드릴게요."}></MessageBubble>
+
       </View>
-    </View>
     <Button1 style={{position: "absolute", bottom: 36}} text = {"종아요"} onPress={() => navigation.navigate("Registration")}></Button1>
     </View>
   );
@@ -41,19 +41,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  frame: {
-    position: "relative",
-    marginTop: 342,
-    height: 423,
-    width: 344,
-    display: 'flex',
-    flexDirection: "column",
-    zIndex: 1,
-    backgroundColor: Color.subBlue
-  },
-
   messageFrame: {
-    position: "absolute",
+    marginTop: 342,
+    position: "relative",
     height: 350,
     width: 344,
     display: 'flex',
@@ -61,7 +51,6 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     gap:11,
     paddingBottom: 16,
-    backgroundColor: Color.black
   },
 
   foreground:{

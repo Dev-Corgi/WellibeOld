@@ -5,9 +5,10 @@ import RegistrationInfo from '../components/RegistrationInfo';
 import { format } from "date-fns";
 import ko from "date-fns/esm/locale/ko/index.js";
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-const Registration2 = () => {
+const Registration2 = ({buttonCallBack}) => {
   const [visible, setVisible] = useState(false); // 모달 노출 여부
   const [date, onChangeDate] = useState(new Date()); // 선택 날짜
+  const [isYear, setIsYear] = useState(false);
 
   const onPress = () => { // 날짜 클릭 시
     setVisible(true); // 모달 open
@@ -16,6 +17,8 @@ const Registration2 = () => {
   const onConfirm = (selectedDate) => { // 날짜 또는 시간 선택 시
     setVisible(false); // 모달 close
     onChangeDate(selectedDate); // 선택한 날짜 변경
+    // buttonCallBack();
+    setIsYear(true);
   };
 
   const onCancel = () => { // 취소 시
@@ -31,7 +34,7 @@ const Registration2 = () => {
           text={'서비스 고도화를 위해 저희만 알고 있을게요'}></RegistrationInfo>
         <View style={styles.contentFrame}>
           <Pressable style={styles.inputfieldFrame} onPress={onPress}>
-            <Text style={styles.inputfieldText}>{date.getFullYear()}</Text>
+            <Text style={styles.inputfieldText}>{isYear ? date.getFullYear() : "출생연도를 선택해 주세요"}</Text>
           </Pressable>
           <Text style={styles.subtext}>수정을 원하시면 탭하여 주세요.</Text>
         </View>

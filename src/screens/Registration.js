@@ -5,9 +5,7 @@ import {
 } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-} from '@react-navigation/native-stack'; // Stack 네비게이션
+import {createNativeStackNavigator} from '@react-navigation/native-stack'; // Stack 네비게이션
 import {StyleSheet, Image, View, Text, Easing} from 'react-native';
 import {Color, FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
@@ -15,7 +13,6 @@ import Registration1 from './Registration1';
 import Registration2 from './Registration2';
 import Registration3 from './Registration3';
 import Registration4 from './Registration4';
-import SlideMotion from '../motions/SlideMotion';
 
 const Registration = () => {
   const Stack = createNativeStackNavigator();
@@ -23,6 +20,8 @@ const Registration = () => {
   const navigation = useNavigation();
 
   const [index, setindex] = useState(1);
+
+  // const [isButtonActive, setIsButtonActive] = useState(false);
 
   // 버튼을 누를 때 다른 스크린으로 이동하려면 아래와 같이 navigation.navigate를 사용할 수 있습니다.
 
@@ -34,9 +33,20 @@ const Registration = () => {
   ];
 
   const onPressHandler = () => {
-    setindex(prev => prev + 1);
-    navigation.navigate(screenList[index].name);
+    // if (isButtonActive) {
+      const maxIndex = screenList.length;
+      if (index < maxIndex) {
+        setindex(prev => prev + 1);
+      }
+      navigation.navigate(screenList[index].name);
+      // navigation.navigate(screenList[index].name,{buttonCallBack : handleButtonActive});
+      // setIsButtonActive(false);
+    // }
   };
+
+  // const handleButtonActive = () =>{
+  //     setIsButtonActive(true);
+  // }
 
   return (
     <View style={styles.view}>
@@ -51,10 +61,10 @@ const Registration = () => {
           </View>
         </View>
         <Stack.Navigator
-          // screenOptions={{
-          //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          // }}
-          >
+        // screenOptions={{
+        //   cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        // }}
+        >
           {screenList.map((screen, index) => {
             return (
               <Stack.Screen
@@ -66,6 +76,10 @@ const Registration = () => {
             );
           })}
         </Stack.Navigator>
+        {/* <Button1
+          style={{position: 'absolute', bottom: 36, backgroundColor: isButtonActive ? Color.navy : Color.kakaoYellow}}
+          text={'다움'}
+          onPress={onPressHandler}></Button1> */}
         <Button1
           style={{position: 'absolute', bottom: 36}}
           text={'다움'}
@@ -131,7 +145,7 @@ const styles = StyleSheet.create({
     height: 3,
     borderRadius: 500,
     backgroundColor: Color.colorKhaki,
-  }
+  },
 });
 
 export default Registration;

@@ -4,7 +4,7 @@ import {Color, FontFamily} from '../GlobalStyles';
 import Button1 from '../components/Button1';
 import RegistrationInfo from '../components/RegistrationInfo';
 import SelectionList from '../components/SelectionList';
-const Registration4 = () => {
+const Registration4 = ({buttonCallBack}) => {
   return (
     <View style = {styles.view}>
       <Text style={styles.title}>{'현재 어떠한\n일을 하고 계신가요?'}</Text>
